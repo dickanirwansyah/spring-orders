@@ -56,4 +56,9 @@ public class OrdersServiceImpl implements OrdersService{
 		return null;
 	}
 
+	@Override
+	public Orders newOrders(Orders orders) {
+		return ordersRepository.save(orders);
+	}
+
 }

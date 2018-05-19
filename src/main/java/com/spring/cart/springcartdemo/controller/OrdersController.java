@@ -41,6 +41,13 @@ public class OrdersController {
 				.orElse(new ResponseEntity<Orders>(HttpStatus.BAD_REQUEST));
 	}
 	
+	@PostMapping(value="/new")
+	public ResponseEntity<Orders> newOrders(@RequestBody Orders orders){
+		return Optional.ofNullable(ordersRepository.save(orders))
+				.map(callbackJSON -> new ResponseEntity<>(callbackJSON, HttpStatus.CREATED))
+				.orElse(new ResponseEntity<Orders>(HttpStatus.BAD_REQUEST));
+	}
+	
 	@GetMapping("")
 	public ResponseEntity<List<Orders>> listOrders(){
 		return Optional.ofNullable(ordersRepository.findAll())

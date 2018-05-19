@@ -8,6 +8,7 @@ import com.spring.cart.springcartdemo.entity.Orders;
 public interface OrdersService {
 	
 	Orders createdOrders(Orders orders);
+	Orders newOrders(Orders orders);
 	List<Orders> listOrders();
 	Orders findById(String idorders);
 	Optional<Orders> findByIdIn(String idorders);
